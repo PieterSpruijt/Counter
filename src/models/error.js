@@ -6,10 +6,15 @@ const error = async (text, rl) => {
     showTitle(`Counter`)
     rl.question(`Error: (${text}) Try again? [yes/no]`, function (code) {
         if (code.toLowerCase() === `no`) {
-            require('../handlers/start')/startGame(rl)
+            startGame(rl)
 
         }
         if (code.toLowerCase() === `yes`) {
+            if (text = `This is not a valid game!`) {
+                console.clear()
+                startGame(rl)
+                return
+            }
             console.clear()
             require('../handlers/count').start(rl)
             
